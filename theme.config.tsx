@@ -2,17 +2,30 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <img width={50} src='https://i.ibb.co/yShkFGZ/w5BlueT.png'></img>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/web5nexus',
   },
   chat: {
     link: 'https://discord.com',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/web5nexus/docs/blob/main/',
   footer: {
-    text: 'Nextra Docs Template',
+    text: (
+      <span>
+        MIT {new Date().getFullYear()} ©{' '}
+        <a href="https://web5.nexus" target="_blank">
+          Web5 Nexus
+        </a>
+        .
+      </span>
+    )
+  },navigation: {
+    prev: true,
+    next: true
   },
+  gitTimestamp:true,
+  
 }
 
 export default config
