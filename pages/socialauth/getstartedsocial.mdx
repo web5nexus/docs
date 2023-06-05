@@ -1,0 +1,135 @@
+---
+title: Web5 Login SDK
+---
+
+# Web5 Login SDK Documentation
+
+## Introduction
+
+The Web5 Login SDK is a powerful authentication library that provides social media-based login functionality for web applications. With this SDK, users can authenticate using popular social media platforms such as Facebook, Google, Twitter, and more.
+
+## Installation
+
+To install the Web5 Login SDK, you need to have npm installed. Run the following command:
+
+```bash
+npm install @web5nexus/web3auth-core
+```
+
+## Usage
+
+### Importing the SDK
+
+To use the Web5 Login SDK, import the `Web5` class from `@web5nexus/web3auth-core`.
+
+```javascript
+import { Web5 } from '@web5nexus/web3auth-core';
+```
+
+### Initializing the SDK
+
+To initialize the Web5 Login SDK, create a new instance of the `Web5` class and provide your client ID and network as parameters.
+
+```javascript
+const web5 = new Web5(clientId, network);
+await web5.init();
+```
+
+### Social Media Login Methods
+
+The Web5 Login SDK provides methods for social media-based login. Each method corresponds to a specific social media platform.
+
+{/* Tab Starts */}
+#### **Facebook Login**
+
+```javascript
+await web5.facebook();
+```
+
+#### **Google Login**
+
+```javascript
+await web5.google();
+```
+
+#### **Discord Login**
+
+```javascript
+await web5.discord();
+```
+
+#### **Twitter Login**
+
+```javascript
+await web5.twitter();
+```
+
+#### **Reddit Login**
+
+```javascript
+await web5.reddit();
+```
+
+#### **Twitch Login**
+
+```javascript
+await web5.twitch();
+```
+
+#### **Apple Login**
+
+```javascript
+await web5.apple();
+```
+
+#### **GitHub Login**
+
+```javascript
+await web5.github();
+```
+
+#### **LinkedIn Login**
+
+```javascript
+await web5.linkedin();
+```
+
+#### **Email Login**
+
+```javascript
+await web5.email(email);
+```
+
+#### **Mobile Login**
+
+```javascript
+await web5.mobile(mobile);
+```
+{/* Tab Ends */}
+
+## Example
+
+Here's an example of how you can use the Web5 Login SDK in a web application:
+
+```javascript
+import { Web5 } from '@web5nexus/web3auth-core';
+
+// Initialize Web5 Login SDK
+const web5 = new Web5(clientId, network);
+await web5.init();
+
+// Perform social media login
+try {
+  await web5.facebook();
+  // Handle successful login
+} catch (error) {
+  // Handle login error
+}
+```
+
+## Conclusion
+
+The Web5 Login SDK provides a simple and convenient way to implement social media-based login in your web application. With support for multiple social media platforms, it offers a seamless authentication experience for your users.
+```
+
+With this modification, the social media login methods will be displayed as tabs in the generated documentation, allowing users to easily switch between different login options.

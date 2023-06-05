@@ -1,0 +1,113 @@
+---
+title: XDC Social
+---
+
+# XdcRpc Class
+
+The `XdcRpc` class provides a set of methods to interact with the XDC blockchain using RPC calls.
+
+## Installation
+
+To use the `XdcRpc` class, you need to have the required dependencies installed. Run the following command:
+
+```bash
+npm install @web5nexus/web3auth-core
+```
+
+## Usage
+
+### Importing the XdcRpc Class
+
+To use the `XdcRpc` class, import it from your code:
+
+```javascript
+import XdcRpc from '@web5nexus/web3auth-core';
+```
+
+### Initializing the XdcRpc Class
+
+To create an instance of the `XdcRpc` class, you need to provide a `SafeEventEmitterProvider` as a parameter.
+
+```javascript
+const provider = ...; // Initialize your provider
+const xdcRpc = new XdcRpc(provider);
+```
+
+### Methods
+
+#### `getChainId(): Promise<string>`
+
+This method retrieves the Chain ID of the connected XDC chain.
+
+Example usage:
+
+```javascript
+const chainId = await xdcRpc.getChainId();
+console.log('Chain ID:', chainId);
+```
+
+#### `getAccounts(): Promise<any>`
+
+This method retrieves the user's XDC account address.
+
+Example usage:
+
+```javascript
+const address = await xdcRpc.getAccounts();
+console.log('Account address:', address);
+```
+
+#### `getBalance(): Promise<string>`
+
+This method retrieves the balance of the user's XDC account.
+
+Example usage:
+
+```javascript
+const balance = await xdcRpc.getBalance();
+console.log('Account balance:', balance);
+```
+
+#### `sendTransaction(amountInWei: string, toAddress: string, maxPriorityFeePerGas?: string, maxFeePerGas?: string): Promise<any>`
+
+This method sends a transaction on the XDC blockchain.
+
+- `amountInWei` (string): The amount to send in Wei.
+- `toAddress` (string): The recipient's address.
+- `maxPriorityFeePerGas` (optional, string): The maximum priority fee per gas.
+- `maxFeePerGas` (optional, string): The maximum fee per gas.
+
+Example usage:
+
+```javascript
+const amountInWei = '1000000000000000000'; // 1 XDC
+const toAddress = '0x...'; // Recipient's address
+const receipt = await xdcRpc.sendTransaction(amountInWei, toAddress);
+console.log('Transaction receipt:', receipt);
+```
+
+#### `signMessage(): Promise<any>`
+
+This method signs a message using the user's XDC account.
+
+Example usage:
+
+```javascript
+const signedMessage = await xdcRpc.signMessage();
+console.log('Signed message:', signedMessage);
+```
+
+#### `getPrivateKey(): Promise<any>`
+
+This method retrieves the private key associated with the user's XDC account.
+
+Example usage:
+
+```javascript
+const privateKey = await xdcRpc.getPrivateKey();
+console.log('Private key:', privateKey);
+```
+
+## Conclusion
+
+The `XdcRpc` class from the `@web5nexus/web3auth-core` library provides a convenient way to interact with the XDC blockchain using RPC calls. With its methods, you can retrieve the chain ID, account address, balance, send transactions, sign messages, and get the private key.

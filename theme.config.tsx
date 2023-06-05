@@ -1,6 +1,7 @@
 import React from 'react'
 import { DocsThemeConfig,useConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
+import { Tab, Tabs } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
   logo: (
@@ -34,6 +35,7 @@ const config: DocsThemeConfig = {
   },
   gitTimestamp:true,
   head: () => {
+    
     const { asPath, defaultLocale, locale } = useRouter()
     const { frontMatter } = useConfig()
     const url =
@@ -51,6 +53,14 @@ const config: DocsThemeConfig = {
         <link rel="icon" type="image/png" href="https://i.ibb.co/yShkFGZ/w5BlueT.png"></link>
       </>
     )
+  },
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s - Web5 Nexus'
+      }
+    }
   }
 }
 

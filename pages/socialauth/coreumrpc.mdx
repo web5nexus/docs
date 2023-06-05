@@ -1,0 +1,126 @@
+
+---
+title: Coreum Social
+---
+
+# CosmosRpc Class
+
+The `CosmosRpc` class allows interaction with the Coreum blockchain through RPC calls. It provides methods for retrieving chain information, account details, balances, sending transactions, and more.
+
+## Installation
+
+To use the `CosmosRpc` class, you need to have the required dependencies installed. Run the following command:
+
+```bash
+npm install @web5nexus/web3auth-core
+```
+
+### Usage
+
+#### Importing the Module
+
+To use the `CosmosRpc` class, you need to import it from the `@web5nexus/web3auth-core` module. You can use the following import statement:
+
+```javascript
+import CosmosRpc from '@web5nexus/web3auth-core';
+```
+
+#### Creating an Instance
+
+To interact with the Coreum blockchain, create an instance of the `CosmosRpc` class by providing the blockchain name, network name, and a `SafeEventEmitterProvider` instance. For example:
+
+```javascript
+const blockchain = 'coreum'; // Specify the blockchain name
+const network = 'testnet'; // Specify the network name
+const provider = ...; // Provide the SafeEventEmitterProvider
+const rpc = new CosmosRpc(blockchain, network, provider);
+```
+
+Replace `...` with the appropriate code or value to initialize the `SafeEventEmitterProvider` instance. This instance is required for handling events and communication with the blockchain.
+
+#### Methods
+
+The `CosmosRpc` class provides the following methods:
+
+##### `getChainId()`
+
+Retrieves the connected blockchain's Chain ID.
+
+```javascript
+const chainId = await rpc.getChainId();
+console.log('Chain ID:', chainId);
+```
+
+##### `getAccounts()`
+
+Retrieves the user's accounts on the Coreum blockchain.
+
+```javascript
+const accounts = await rpc.getAccounts();
+console.log('Accounts:', accounts);
+```
+
+##### `getBalance()`
+
+Retrieves the balance of the user's account on the Coreum blockchain.
+
+```javascript
+const balance = await rpc.getBalance();
+console.log('Balance:', balance);
+```
+
+##### `sendTransaction(amount, toAddress, gasFee, gasLimit)`
+
+Sends a transaction on the Coreum blockchain.
+
+- `amount` (string): The amount to send in the smallest unit (e.g., microcosm, femtocoin, etc.).
+- `toAddress` (string): The recipient's address.
+- `gasFee` (string, optional): The gas fee for the transaction (default: undefined).
+- `gasLimit` (string, optional): The gas limit for the transaction (default: undefined).
+
+```javascript
+const amount = '1000000000'; // Amount in smallest unit
+const toAddress = 'cosmos1...'; // Specify the recipient's address
+const gasFee = '10000'; // Specify the gas fee (optional)
+const gasLimit = '200000'; // Specify the gas limit (optional)
+
+const result = await rpc.sendTransaction(amount, toAddress, gasFee, gasLimit);
+console.log('Transaction Hash:', result.transactionHash);
+console.log('Block Height:', result.height);
+```
+
+##### `getPrivateKey()`
+
+Retrieves the private key associated with the provider.
+
+```javascript
+const privateKey = await rpc.getPrivateKey();
+console.log('Private Key:', privateKey);
+```
+
+#### Example
+
+Here's an example that demonstrates the usage of the `CosmosRpc` class methods:
+
+```javascript
+// Import the necessary modules
+import CosmosRpc from '@web5nexus/web3auth-core';
+
+// Create an instance of the CosmosRpc class
+const blockchain = 'coreum'; // Specify the blockchain name
+const network = 'testnet'; // Specify the network name
+const provider = ...; // Provide the SafeEventEmitterProvider
+const rpc = new CosmosRpc(blockchain, network, provider);
+
+// Example usage of the CosmosRpc methods
+// ...
+
+``
+
+`
+
+Make sure to replace `...` with the appropriate code or value to initialize the `SafeEventEmitterProvider` instance.
+
+### Conclusion
+
+The `CosmosRpc` class provides a convenient way to interact with the Coreum blockchain through RPC calls. You can use its methods to retrieve chain information, account details, balances, send transactions, and more.
